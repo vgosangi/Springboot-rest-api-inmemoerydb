@@ -3,10 +3,12 @@ package com.AshvFinance.practice.Springbootrestapi.Entity.controller;
 import com.AshvFinance.practice.Springbootrestapi.Entity.Department;
 
 import com.AshvFinance.practice.Springbootrestapi.Service.DepartmentServiceImplementation;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @RestController
 public class DepartmentController {
@@ -14,8 +16,10 @@ public class DepartmentController {
     @Autowired
     private DepartmentServiceImplementation departmentService;
 
+
+
     @PostMapping("/departments")
-    public Department saveDepartment(@RequestBody Department department){
+    public Department saveDepartment(@Valid @RequestBody Department department){
 
         return departmentService.saveDepartment(department);
     }
